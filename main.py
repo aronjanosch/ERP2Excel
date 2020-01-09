@@ -31,8 +31,8 @@ class App(tk.Frame):
         self.id_entry = tk.Entry(master)
         self.token_entry = tk.Entry(master)
 
-        self.i_path_button = tk.Button(master, width=8, text="Input Path", command=lambda: self.get_input_path())
-        self.o_path_button = tk.Button(master, width=8, text="Output Path", command=lambda: self.get_output_path())
+        self.i_path_button = tk.Button(master, width=8, text="Vorlage File", command=lambda: self.get_input_path())
+        self.o_path_button = tk.Button(master, width=8, text="Speicherort", command=lambda: self.get_output_path())
 
         self.go_button = tk.Button(master, width=17, text="GO!", command=lambda: self.run_tool())
 
@@ -53,12 +53,12 @@ class App(tk.Frame):
         pass
 
     def get_input_path(self):
-        self.ipath = tk.filedialog.askopenfilename(initialdir = "/Users/aronwiederkehr/Desktop/",title = "Select xlsx file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
+        self.ipath = tk.filedialog.askopenfilename(initialdir = "/Users/aronwiederkehr/Desktop/", defaultextension=".xlsx", title = "Select xlsx file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
         self.message.set("Import File set!")
         self.valid_i = True
 
     def get_output_path(self):
-        self.opath = tk.filedialog.asksaveasfilename(initialdir = "/Users/aronwiederkehr/Desktop/",title = "Save xlsx file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
+        self.opath = tk.filedialog.asksaveasfilename(initialdir = "/Users/aronwiederkehr/Desktop/", defaultextension=".xlsx", title = "Save xlsx file",filetypes = (("xlsx files","*.xlsx"),("all files","*.*")))
         self.message.set("Export File set!")
         self.valid_o = True
 
